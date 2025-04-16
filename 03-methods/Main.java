@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args){
         int sum = addTwo(3, 4);
 
+
         // Java support String concatenation -- combine two strings together
         System.out.println("Sum =" + sum);
 
