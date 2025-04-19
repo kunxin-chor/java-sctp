@@ -1,9 +1,14 @@
-package L6Scanner;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        // see the arguments
+        for (String a : args) {
+            System.out.println(a);
+        }
+
 
         // Scanner class
         // class => is a container that can have data and methods (aka functions)
