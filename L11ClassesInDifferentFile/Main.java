@@ -20,6 +20,9 @@ public class Main {
         System.out.println("Animal Name: " + pet.getName());
         System.out.println("Animal's age in years = " + pet.getAgeInYears());
 
+        Employee e = new Employee();
+        e.firstName = "Ah Kow";
+
     }
 
 }
