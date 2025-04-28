@@ -9,6 +9,7 @@ public class Main {
         List<Double> numbers = new ArrayList<>();
 
         // Read all numbers from the file into a list
+        // A buffered reader is a way of reading file by chunks of data at one go into the memory
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -24,8 +25,11 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(2);
+        } catch (Exception e) {
+            System.out.println("Some kind of generic error");
         }
 
+        // Split the problem size into two
         int size = numbers.size();
         int mid = size / 2;
 
@@ -40,9 +44,12 @@ public class Main {
 
         // Two-thread sum and timing
         long startMulti = System.nanoTime();
+        // create two thread, the first is to sum from the first number to the half way size (excluding the slice)
         SumThread t1 = new SumThread(numbers, 0, mid);
+        // thread 2 is sum from halfway point to the end
         SumThread t2 = new SumThread(numbers, mid, size);
 
+        // Run the two threads
         t1.start();
         t2.start();
 
